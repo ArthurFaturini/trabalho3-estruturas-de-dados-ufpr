@@ -3,6 +3,7 @@
 #include <time.h>
 #include "ordenacao.h"
 #include "vetores.h"
+#include "relatorio.h"
 
 const char *obterNomeMetodo(int opcaoMetodo)
 {
@@ -167,14 +168,16 @@ void menuOrdenacao(void)
 int main(void)
 {
     int opcaoPrincipal;
+    char nomeArquivo[250];
 
     srand((unsigned int)time(NULL));
 
     do
     {
         printf("\n=== TRABALHO 3 - ORDENACAO E BUSCA ===\n");
-        printf("1 - Ordenacao de Dados\n");
+        printf("1 - Ordenacao de Dados (Teste interativo)\n");
         printf("2 - Busca de Dados\n");
+        printf("3 - Gerar arquivo .txt de Ordenacao\n");
         printf("0 - Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcaoPrincipal);
@@ -186,6 +189,11 @@ int main(void)
             break;
         case 2:
             printf("\n[Modulo de Busca aguardando integracao]\n");
+            break;
+        case 3:
+            printf("\nInforme o nome do arquivo de saida (ex: resultados.txt): ");
+            scanf(" %249[^\n]", nomeArquivo);
+            gerarRelatorioOrdenacao(nomeArquivo);
             break;
         case 0:
             printf("\nEncerrando programa...\n");

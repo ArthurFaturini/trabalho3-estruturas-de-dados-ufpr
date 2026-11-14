@@ -5,7 +5,7 @@
 
 // Combina chamadas de rand() para gerar um numero de 32 bits,
 // superando o limite de RAND_MAX (32767) no Windows
-static unsigned int gerarAleatorio32(void)
+unsigned int gerarAleatorio32(void)
 {
     unsigned int r1, r2, r3;
 
