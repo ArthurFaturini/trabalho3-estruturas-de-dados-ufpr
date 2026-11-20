@@ -5,6 +5,33 @@
 #include "vetores.h"
 #include "relatorio.h"
 
+void limparTela(void)
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+void pausarTela(void)
+{
+    int c;
+
+    // Limpa o '\n' residual deixado pelo ultimo scanf no buffer de entrada
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
+
+    printf("\nPressione ENTER para continuar...");
+    fflush(stdout);
+
+    // Aguarda o usuario pressionar ENTER (e descarta qualquer caractere extra digitado)
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
+
+    limparTela();
+}
+
 int selecionarTamanho(void)
 {
     int opcao;
@@ -111,12 +138,14 @@ void menuOrdenacao(void)
 
         if (opcaoMetodo == 0)
         {
+            limparTela();
             break;
         }
 
         if (opcaoMetodo < 1 || opcaoMetodo > 4)
         {
             printf("Metodo invalido!\n");
+            pausarTela();
             continue;
         }
 
@@ -124,6 +153,15 @@ void menuOrdenacao(void)
         if (tam > 0)
         {
             testarOrdenacaoPorTamanho(opcaoMetodo, tam);
+            pausarTela();
+        }
+        else if (tam == 0)
+        {
+            limparTela();
+        }
+        else
+        {
+            pausarTela();
         }
 
     } while (opcaoMetodo != 0);
@@ -149,21 +187,25 @@ int main(void)
         switch (opcaoPrincipal)
         {
         case 1:
+            limparTela();
             menuOrdenacao();
             break;
         case 2:
             printf("\n[Modulo de Busca aguardando integracao]\n");
+            pausarTela();
             break;
         case 3:
             printf("\nInforme o nome do arquivo de saida (ex: resultados.txt): ");
             scanf(" %249[^\n]", nomeArquivo);
             gerarRelatorioOrdenacao(nomeArquivo);
+            pausarTela();
             break;
         case 0:
             printf("\nEncerrando programa...\n");
             break;
         default:
             printf("\nOpcao invalida!\n");
+            pausarTela();
             break;
         }
 
