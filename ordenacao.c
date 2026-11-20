@@ -122,3 +122,39 @@ void shellSort(int *vetor, int tam, unsigned long long *comparacoes, unsigned lo
         h = (h - 1) / 3;
     }
 }
+
+const char *obterNomeMetodo(int opcaoMetodo)
+{
+    switch (opcaoMetodo)
+    {
+    case 1:
+        return "BUBBLESORT";
+    case 2:
+        return "SELECTION SORT";
+    case 3:
+        return "INSERTION SORT";
+    case 4:
+        return "SHELL-SORT";
+    default:
+        return "DESCONHECIDO";
+    }
+}
+
+void executarOrdenacao(int opcaoMetodo, int *vetor, int tam, unsigned long long *comp, unsigned long long *perm)
+{
+    switch (opcaoMetodo)
+    {
+    case 1:
+        bubbleSort(vetor, tam, comp, perm);
+        break;
+    case 2:
+        selectionSort(vetor, tam, comp, perm);
+        break;
+    case 3:
+        insertionSort(vetor, tam, comp, perm);
+        break;
+    case 4:
+        shellSort(vetor, tam, comp, perm);
+        break;
+    }
+}

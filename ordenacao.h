@@ -7,4 +7,8 @@ void selectionSort(int *vetor, int n, unsigned long long *comparacoes, unsigned 
 void insertionSort(int *vetor, int n, unsigned long long *comparacoes, unsigned long long *permutacoes);
 void shellSort(int *vetor, int n, unsigned long long *comparacoes, unsigned long long *permutacoes);
 
+// Funcoes auxiliares para selecao e identificacao dos metodos
+const char *obterNomeMetodo(int opcaoMetodo);
+void executarOrdenacao(int opcaoMetodo, int *vetor, int tam, unsigned long long *comp, unsigned long long *perm);
+
 #endif
