@@ -4,6 +4,7 @@
 #include "ordenacao.h"
 #include "vetores.h"
 #include "relatorio.h"
+#include "busca.h"
 
 void limparTela(void)
 {
@@ -167,6 +168,106 @@ void menuOrdenacao(void)
     } while (opcaoMetodo != 0);
 }
 
+void imprimirResultadoBusca(const char *descricao, int chave, int posicao,
+                            unsigned long long comparacoes, double tempo)
+{
+    printf("\n%s (chave = %d)\n", descricao, chave);
+    if (posicao >= 0)
+        printf("Resultado: encontrado na posicao %d\n", posicao);
+    else
+        printf("Resultado: nao encontrado\n");
+    printf("Quantidade de Comparacoes: %llu\n", comparacoes);
+    printf("Tempo medio da busca: %.9f segundos\n", tempo);
+}
+
+void testarBuscaPorTamanho(int opcaoBusca, int tam)
+{
+    int *vetor;
+    int chaves[4], posicao, i, chaveUsuario;
+    unsigned long long comparacoes;
+    double tempo;
+    const char *descricoes[4] = {
+        "Chave na primeira posicao do vetor",
+        "Chave no meio do vetor",
+        "Chave na ultima posicao do vetor",
+        "Chave inexistente no vetor"};
+
+    vetor = alocarVetor(tam);
+    prepararVetorBusca(opcaoBusca, vetor, tam);
+
+    printf("\n========================================================\n");
+    printf("Metodo de busca: %s\n", obterNomeBusca(opcaoBusca));
+    printf("Conjunto com %d elementos (%s)\n", tam,
+           opcaoBusca == 2 ? "aleatorios, ordenados com Shell-Sort" : "aleatorios");
+    printf("========================================================\n");
+
+    chaves[0] = vetor[0];
+    chaves[1] = vetor[(tam - 1) / 2];
+    chaves[2] = vetor[tam - 1];
+    chaves[3] = tam + 1; // os valores vao de 1 a tam, entao tam+1 nao existe
+
+    for (i = 0; i < 4; i++)
+    {
+        posicao = executarBusca(opcaoBusca, vetor, tam, chaves[i], &comparacoes);
+        tempo = medirTempoBusca(opcaoBusca, vetor, tam, chaves[i]);
+        imprimirResultadoBusca(descricoes[i], chaves[i], posicao, comparacoes, tempo);
+    }
+
+    printf("\nInforme um valor para buscar (1 a %d) ou 0 para pular: ", tam);
+    if (scanf("%d", &chaveUsuario) == 1 && chaveUsuario != 0)
+    {
+        posicao = executarBusca(opcaoBusca, vetor, tam, chaveUsuario, &comparacoes);
+        tempo = medirTempoBusca(opcaoBusca, vetor, tam, chaveUsuario);
+        imprimirResultadoBusca("Chave informada pelo usuario", chaveUsuario, posicao, comparacoes, tempo);
+    }
+
+    free(vetor);
+}
+
+void menuBusca(void)
+{
+    int opcaoBusca, tam;
+
+    do
+    {
+        printf("\n--- METODOS DE BUSCA ---\n");
+        printf("1 - Busca Sequencial\n");
+        printf("2 - Busca Binaria\n");
+        printf("0 - Voltar ao menu principal\n");
+        printf("Escolha o metodo: ");
+        scanf("%d", &opcaoBusca);
+
+        if (opcaoBusca == 0)
+        {
+            limparTela();
+            break;
+        }
+
+        if (opcaoBusca < 1 || opcaoBusca > 2)
+        {
+            printf("Metodo invalido!\n");
+            pausarTela();
+            continue;
+        }
+
+        tam = selecionarTamanho();
+        if (tam > 0)
+        {
+            testarBuscaPorTamanho(opcaoBusca, tam);
+            pausarTela();
+        }
+        else if (tam == 0)
+        {
+            limparTela();
+        }
+        else
+        {
+            pausarTela();
+        }
+
+    } while (opcaoBusca != 0);
+}
+
 int main(void)
 {
     int opcaoPrincipal;
@@ -180,6 +281,7 @@ int main(void)
         printf("1 - Ordenacao de Dados (Teste interativo)\n");
         printf("2 - Busca de Dados\n");
         printf("3 - Gerar arquivo .txt de Ordenacao\n");
+        printf("4 - Gerar arquivo .txt de Busca\n");
         printf("0 - Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcaoPrincipal);
@@ -191,13 +293,19 @@ int main(void)
             menuOrdenacao();
             break;
         case 2:
-            printf("\n[Modulo de Busca aguardando integracao]\n");
-            pausarTela();
+            limparTela();
+            menuBusca();
             break;
         case 3:
             printf("\nInforme o nome do arquivo de saida (ex: resultados.txt): ");
             scanf(" %249[^\n]", nomeArquivo);
             gerarRelatorioOrdenacao(nomeArquivo);
+            pausarTela();
+            break;
+        case 4:
+            printf("\nInforme o nome do arquivo de saida (ex: busca.txt): ");
+            scanf(" %249[^\n]", nomeArquivo);
+            gerarRelatorioBusca(nomeArquivo);
             pausarTela();
             break;
         case 0:
