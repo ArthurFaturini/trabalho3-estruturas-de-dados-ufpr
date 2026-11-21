@@ -1,0 +1,448 @@
+========================================================
+Metodo de ordenacao: BUBBLESORT
+========================================================
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 10 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 10 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 45
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 45
+Quantidades de Permutacoes: 45
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 45
+Quantidades de Permutacoes: 17
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 100 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 100 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 4950
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 100 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 4950
+Quantidades de Permutacoes: 4950
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 100 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 4950
+Quantidades de Permutacoes: 2573
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 1000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 1000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 499500
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 1000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 499500
+Quantidades de Permutacoes: 499500
+Tempo gasto para ordenacao: 0.002000 segundos
+
+Conjunto com 1000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 499500
+Quantidades de Permutacoes: 241648
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 10000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 10000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 49995000
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.026000 segundos
+
+Conjunto com 10000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 49995000
+Quantidades de Permutacoes: 49995000
+Tempo gasto para ordenacao: 0.129000 segundos
+
+Conjunto com 10000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 49995000
+Quantidades de Permutacoes: 25073655
+Tempo gasto para ordenacao: 0.075000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 100000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 100000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 4999950000
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 2.970000 segundos
+
+Conjunto com 100000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 4999950000
+Quantidades de Permutacoes: 4999950000
+Tempo gasto para ordenacao: 12.779000 segundos
+
+Conjunto com 100000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 4999950000
+Quantidades de Permutacoes: 2496887182
+Tempo gasto para ordenacao: 15.451000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 1000000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 1000000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 499999500000
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 509.623000 segundos
+
+Conjunto com 1000000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 499999500000
+Quantidades de Permutacoes: 499999500000
+Tempo gasto para ordenacao: 1281.481000 segundos
+
+Conjunto com 1000000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 499999500000
+Quantidades de Permutacoes: 249862524263
+Tempo gasto para ordenacao: 1561.707000 segundos
+
+========================================================
+Metodo de ordenacao: SELECTION SORT
+========================================================
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 10 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 10 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 45
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 45
+Quantidades de Permutacoes: 5
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 45
+Quantidades de Permutacoes: 7
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 100 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 100 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 4950
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 100 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 4950
+Quantidades de Permutacoes: 50
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 100 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 4950
+Quantidades de Permutacoes: 91
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 1000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 1000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 499500
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.001000 segundos
+
+Conjunto com 1000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 499500
+Quantidades de Permutacoes: 500
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 1000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 499500
+Quantidades de Permutacoes: 996
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 10000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 10000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 49995000
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.020000 segundos
+
+Conjunto com 10000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 49995000
+Quantidades de Permutacoes: 5000
+Tempo gasto para ordenacao: 0.024000 segundos
+
+Conjunto com 10000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 49995000
+Quantidades de Permutacoes: 9987
+Tempo gasto para ordenacao: 0.020000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 100000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 100000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 4999950000
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 2.019000 segundos
+
+Conjunto com 100000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 4999950000
+Quantidades de Permutacoes: 50000
+Tempo gasto para ordenacao: 2.256000 segundos
+
+Conjunto com 100000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 4999950000
+Quantidades de Permutacoes: 99988
+Tempo gasto para ordenacao: 1.995000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 1000000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 1000000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 499999500000
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 201.245000 segundos
+
+Conjunto com 1000000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 499999500000
+Quantidades de Permutacoes: 500000
+Tempo gasto para ordenacao: 225.451000 segundos
+
+Conjunto com 1000000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 499999500000
+Quantidades de Permutacoes: 999987
+Tempo gasto para ordenacao: 200.755000 segundos
+
+========================================================
+Metodo de ordenacao: INSERTION SORT
+========================================================
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 10 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 10 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 9
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 45
+Quantidades de Permutacoes: 45
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 25
+Quantidades de Permutacoes: 17
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 100 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 100 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 99
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 100 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 4950
+Quantidades de Permutacoes: 4950
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 100 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 2669
+Quantidades de Permutacoes: 2573
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 1000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 1000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 999
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 1000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 499500
+Quantidades de Permutacoes: 499500
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 1000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 242642
+Quantidades de Permutacoes: 241648
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 10000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 10000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 9999
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 49995000
+Quantidades de Permutacoes: 49995000
+Tempo gasto para ordenacao: 0.038000 segundos
+
+Conjunto com 10000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 25083646
+Quantidades de Permutacoes: 25073655
+Tempo gasto para ordenacao: 0.018000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 100000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 100000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 99999
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 100000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 4999950000
+Quantidades de Permutacoes: 4999950000
+Tempo gasto para ordenacao: 4.423000 segundos
+
+Conjunto com 100000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 2496987168
+Quantidades de Permutacoes: 2496887182
+Tempo gasto para ordenacao: 2.156000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 1000000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 1000000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 999999
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.001000 segundos
+
+Conjunto com 1000000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 499999500000
+Quantidades de Permutacoes: 499999500000
+Tempo gasto para ordenacao: 684.656000 segundos
+
+Conjunto com 1000000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 249863524250
+Quantidades de Permutacoes: 249862524263
+Tempo gasto para ordenacao: 341.531000 segundos
+
+========================================================
+Metodo de ordenacao: SHELL-SORT
+========================================================
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 10 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 10 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 15
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 21
+Quantidades de Permutacoes: 13
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 24
+Quantidades de Permutacoes: 13
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 100 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 100 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 342
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 100 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 500
+Quantidades de Permutacoes: 230
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 100 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 836
+Quantidades de Permutacoes: 537
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 1000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 1000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 5457
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 1000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 8550
+Quantidades de Permutacoes: 3920
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 1000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 14065
+Quantidades de Permutacoes: 9032
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 10000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 10000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 75243
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 120190
+Quantidades de Permutacoes: 53704
+Tempo gasto para ordenacao: 0.000000 segundos
+
+Conjunto com 10000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 252906
+Quantidades de Permutacoes: 182061
+Tempo gasto para ordenacao: 0.000000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 100000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 100000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 967146
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.002000 segundos
+
+Conjunto com 100000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 1533494
+Quantidades de Permutacoes: 619654
+Tempo gasto para ordenacao: 0.002000 segundos
+
+Conjunto com 100000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 3775365
+Quantidades de Permutacoes: 2849582
+Tempo gasto para ordenacao: 0.008000 segundos
+
+--------------------------------------------------------
+>>> TAMANHO DO CONJUNTO: 1000000 ELEMENTOS <<<
+--------------------------------------------------------
+Conjunto com 1000000 elementos - inicialmente ordenado
+Quantidade de Comparacoes: 11804265
+Quantidades de Permutacoes: 0
+Tempo gasto para ordenacao: 0.024000 segundos
+
+Conjunto com 1000000 elementos - inicialmente ordenado inversamente
+Quantidade de Comparacoes: 17578626
+Quantidades de Permutacoes: 6245384
+Tempo gasto para ordenacao: 0.024000 segundos
+
+Conjunto com 1000000 elementos - com dados posicionados de forma aleatoria
+Quantidade de Comparacoes: 61519288
+Quantidades de Permutacoes: 50123627
+Tempo gasto para ordenacao: 0.110000 segundos
+
