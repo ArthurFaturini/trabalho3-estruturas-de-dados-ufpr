@@ -1,8 +1,8 @@
 # Trabalho 3 – Ordenação e Busca
 
-Programa em C que compara métodos de **ordenação** e de **busca**, medindo
-quantidade de comparações, permutações e tempo de execução para conjuntos de
-10 a 1.000.000 elementos.
+Programa em C que compara métodos de **ordenação** (comparações, permutações e
+tempo para conjuntos de 10 a 1.000.000 elementos) e de **busca** (comparações
+da Pesquisa Sequencial e da Pesquisa Binária).
 
 ## Estrutura
 
@@ -10,9 +10,9 @@ quantidade de comparações, permutações e tempo de execução para conjuntos 
 |---|---|
 | `main.c` | Menus e testes interativos de ordenação e busca |
 | `ordenacao.c/.h` | Bubble Sort, Selection Sort, Insertion Sort e Shell-Sort (sequência de Knuth) |
-| `busca.c/.h` | Busca Sequencial e Busca Binária, medição de tempo e preparação dos vetores |
-| `vetores.c/.h` | Alocação e preenchimento de vetores (ordenado, inverso e aleatório) |
-| `relatorio.c/.h` | Geração dos relatórios `.txt` de ordenação e de busca |
+| `busca.c/.h` | Busca Sequencial e Busca Binária, com contagem de comparações |
+| `vetores.c/.h` | Alocação, cópia e preenchimento de vetores (ordenado, inverso, aleatório sem repetição e aleatório entre 100 e 100.000) |
+| `relatorio.c/.h` | Geração do relatório `.txt` de ordenação |
 
 ## Como compilar e executar
 
@@ -26,26 +26,28 @@ trabalho3.exe        # Windows
 
 1. **Ordenação de Dados** – escolhe o método e o tamanho; ordena o vetor nos
    três cenários: inicialmente ordenado, ordenado inversamente e aleatório.
-2. **Busca de Dados** – escolhe Busca Sequencial ou Binária e o tamanho; testa
-   chave na primeira posição, no meio, na última posição e uma chave
-   inexistente. No final, permite buscar um valor digitado pelo usuário.
-3. **Gerar arquivo .txt de Ordenação** – roda os 4 métodos em todos os tamanhos.
-4. **Gerar arquivo .txt de Busca** – roda os 2 métodos de busca em todos os tamanhos.
+2. **Busca de Dados** – o usuário informa a quantidade de elementos; o programa
+   gera números aleatórios entre 100 e 100.000, e o usuário informa 3 números
+   inteiros. Cada número é buscado pelos dois algoritmos, e o programa mostra se
+   ele se encontra ou não no conjunto e quantas comparações cada busca fez.
+3. **Gerar arquivo .txt de Ordenação** – roda os 4 métodos em todos os tamanhos
+   e grava no arquivo com o nome informado.
 
 ## Decisões de implementação
 
 - **Dados aleatórios sem repetição:** o vetor recebe os valores de 1 a *n* e é
   embaralhado com Fisher–Yates. Como `RAND_MAX` vale 32767 no Windows, três
   chamadas de `rand()` são combinadas para gerar números de 32 bits.
-- **Mesma semente nos relatórios:** todos os métodos ordenam/buscam exatamente
+- **Mesma semente nos relatórios:** todos os métodos ordenam exatamente
   os mesmos dados aleatórios em cada tamanho, para a comparação ser justa.
 - **Permutações:** no Bubble e no Selection conta-se cada troca; no Insertion e
   no Shell conta-se cada deslocamento de elemento.
-- **Busca Binária:** exige vetor ordenado, por isso o vetor aleatório é
-  ordenado com o Shell-Sort antes da busca. Cada iteração conta até 2
-  comparações (igualdade e menor/maior).
-- **Tempo da busca:** uma única busca é rápida demais para o `clock()`. A busca
-  é repetida em lotes até somar ~0,05 s, e o tempo informado é a média por busca.
+- **Busca:** a Pesquisa Sequencial é feita no vetor original (não ordenado). A
+  Pesquisa Binária é feita numa cópia do vetor original ordenada com o
+  Shell-Sort. Na busca os números podem se repetir, já que o enunciado só define
+  o intervalo (100 a 100.000).
+- **Comparações da Busca Binária:** cada iteração conta até 2 comparações
+  (se é igual à chave e, se não for, se é menor ou maior).
 
 ## Complexidade esperada
 
@@ -65,4 +67,4 @@ n(n−1)/2 comparações mesmo com o vetor já ordenado.
 
 Os métodos O(n²) com 1.000.000 de elementos fazem cerca de 5 × 10¹¹
 comparações por cenário, então o relatório completo de ordenação pode levar
-**várias horas**. A busca completa leva poucos segundos.
+**várias horas**. 

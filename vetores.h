@@ -13,6 +13,9 @@ void preencherInverso(int *vetor, int tam);
 // Preenche o vetor com valores unicos (1 a tam) embaralhados aleatoriamente
 void preencherAleatorio(int *vetor, int tam);
 
+// Preenche o vetor com valores aleatorios entre minimo e maximo (podem repetir)
+void preencherAleatorioIntervalo(int *vetor, int tam, int minimo, int maximo);
+
 // Copia o conteudo de um vetor para outro de mesmo tamanho
 void copiarVetor(const int *origem, int *destino, int tam);
 

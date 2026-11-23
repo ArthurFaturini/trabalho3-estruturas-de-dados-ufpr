@@ -70,6 +70,18 @@ void preencherAleatorio(int *vetor, int tam)
     }
 }
 
+void preencherAleatorioIntervalo(int *vetor, int tam, int minimo, int maximo)
+{
+    int i;
+    unsigned int amplitude = (unsigned int)(maximo - minimo + 1);
+
+    // Valores aleatorios entre minimo e maximo (inclusive); podem se repetir
+    for (i = 0; i < tam; i++)
+    {
+        vetor[i] = minimo + (int)(gerarAleatorio32() % amplitude);
+    }
+}
+
 void copiarVetor(const int *origem, int *destino, int tam)
 {
     memcpy(destino, origem, (size_t)tam * sizeof(int));
