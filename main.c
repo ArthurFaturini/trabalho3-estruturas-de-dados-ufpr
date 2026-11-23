@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits.h>
 #include "ordenacao.h"
 #include "vetores.h"
 #include "relatorio.h"
@@ -168,104 +169,99 @@ void menuOrdenacao(void)
     } while (opcaoMetodo != 0);
 }
 
-void imprimirResultadoBusca(const char *descricao, int chave, int posicao,
-                            unsigned long long comparacoes, double tempo)
+// Le um inteiro do teclado, repetindo a pergunta se o usuario digitar algo invalido
+int lerInteiro(const char *mensagem, int minimo)
 {
-    printf("\n%s (chave = %d)\n", descricao, chave);
-    if (posicao >= 0)
-        printf("Resultado: encontrado na posicao %d\n", posicao);
-    else
-        printf("Resultado: nao encontrado\n");
-    printf("Quantidade de Comparacoes: %llu\n", comparacoes);
-    printf("Tempo medio da busca: %.9f segundos\n", tempo);
+    int valor, c;
+
+    while (1)
+    {
+        printf("%s", mensagem);
+        if (scanf("%d", &valor) == 1 && valor >= minimo)
+            return valor;
+
+        printf("Valor invalido! Digite um numero inteiro");
+        if (minimo > 0)
+            printf(" maior ou igual a %d", minimo);
+        printf(".\n");
+
+        // Descarta o que sobrou da entrada invalida
+        while ((c = getchar()) != '\n' && c != EOF)
+            ;
+        if (c == EOF)
+            exit(1);
+    }
 }
 
-void testarBuscaPorTamanho(int opcaoBusca, int tam)
+void imprimirVetor(const char *titulo, const int *vetor, int tam)
 {
-    int *vetor;
-    int chaves[4], posicao, i, chaveUsuario;
-    unsigned long long comparacoes;
-    double tempo;
-    const char *descricoes[4] = {
-        "Chave na primeira posicao do vetor",
-        "Chave no meio do vetor",
-        "Chave na ultima posicao do vetor",
-        "Chave inexistente no vetor"};
+    int i;
 
-    vetor = alocarVetor(tam);
-    prepararVetorBusca(opcaoBusca, vetor, tam);
-
-    printf("\n========================================================\n");
-    printf("Metodo de busca: %s\n", obterNomeBusca(opcaoBusca));
-    printf("Conjunto com %d elementos (%s)\n", tam,
-           opcaoBusca == 2 ? "aleatorios, ordenados com Shell-Sort" : "aleatorios");
-    printf("========================================================\n");
-
-    chaves[0] = vetor[0];
-    chaves[1] = vetor[(tam - 1) / 2];
-    chaves[2] = vetor[tam - 1];
-    chaves[3] = tam + 1; // os valores vao de 1 a tam, entao tam+1 nao existe
-
-    for (i = 0; i < 4; i++)
-    {
-        posicao = executarBusca(opcaoBusca, vetor, tam, chaves[i], &comparacoes);
-        tempo = medirTempoBusca(opcaoBusca, vetor, tam, chaves[i]);
-        imprimirResultadoBusca(descricoes[i], chaves[i], posicao, comparacoes, tempo);
-    }
-
-    printf("\nInforme um valor para buscar (1 a %d) ou 0 para pular: ", tam);
-    if (scanf("%d", &chaveUsuario) == 1 && chaveUsuario != 0)
-    {
-        posicao = executarBusca(opcaoBusca, vetor, tam, chaveUsuario, &comparacoes);
-        tempo = medirTempoBusca(opcaoBusca, vetor, tam, chaveUsuario);
-        imprimirResultadoBusca("Chave informada pelo usuario", chaveUsuario, posicao, comparacoes, tempo);
-    }
-
-    free(vetor);
+    printf("%s: ", titulo);
+    for (i = 0; i < tam; i++)
+        printf("%d ", vetor[i]);
+    printf("\n");
 }
 
 void menuBusca(void)
 {
-    int opcaoBusca, tam;
+    int tam, i, posSeq, posBin;
+    int numeros[3];
+    int *vetorOriginal, *vetorOrdenado;
+    unsigned long long compSeq, compBin, compOrd, permOrd;
+    char mensagem[60];
 
-    do
+    printf("\n--- BUSCA DE DADOS ---\n");
+    tam = lerInteiro("Informe a quantidade de elementos do conjunto de dados: ", 1);
+
+    // 1. Gera o vetor original com numeros aleatorios entre 100 e 100.000
+    vetorOriginal = alocarVetor(tam);
+    preencherAleatorioIntervalo(vetorOriginal, tam, 100, 100000);
+
+    // 2. Copia o vetor original e ordena a copia (a busca binaria exige vetor ordenado)
+    vetorOrdenado = alocarVetor(tam);
+    copiarVetor(vetorOriginal, vetorOrdenado, tam);
+    shellSort(vetorOrdenado, tam, &compOrd, &permOrd);
+
+    printf("\nVetor com %d elementos gerado (valores entre 100 e 100.000).\n", tam);
+    if (tam <= 20)
     {
-        printf("\n--- METODOS DE BUSCA ---\n");
-        printf("1 - Busca Sequencial\n");
-        printf("2 - Busca Binaria\n");
-        printf("0 - Voltar ao menu principal\n");
-        printf("Escolha o metodo: ");
-        scanf("%d", &opcaoBusca);
+        imprimirVetor("Vetor original ", vetorOriginal, tam);
+        imprimirVetor("Vetor ordenado ", vetorOrdenado, tam);
+    }
 
-        if (opcaoBusca == 0)
-        {
-            limparTela();
-            break;
-        }
+    // 3. Usuario informa os tres numeros a serem buscados
+    printf("\nInforme 3 numeros inteiros para buscar no vetor:\n");
+    for (i = 0; i < 3; i++)
+    {
+        sprintf(mensagem, "Numero %d: ", i + 1);
+        numeros[i] = lerInteiro(mensagem, INT_MIN);
+    }
 
-        if (opcaoBusca < 1 || opcaoBusca > 2)
-        {
-            printf("Metodo invalido!\n");
-            pausarTela();
-            continue;
-        }
+    // 4. Busca cada numero pelos dois algoritmos e imprime os resultados
+    printf("\n========================================================\n");
+    printf("RESULTADO DAS BUSCAS\n");
+    printf("========================================================\n");
 
-        tam = selecionarTamanho();
-        if (tam > 0)
-        {
-            testarBuscaPorTamanho(opcaoBusca, tam);
-            pausarTela();
-        }
-        else if (tam == 0)
-        {
-            limparTela();
-        }
+    for (i = 0; i < 3; i++)
+    {
+        // Sequencial no vetor original nao ordenado; binaria no vetor ordenado
+        posSeq = buscaSequencial(vetorOriginal, tam, numeros[i], &compSeq);
+        posBin = buscaBinaria(vetorOrdenado, tam, numeros[i], &compBin);
+
+        printf("\nNumero %d: %d\n", i + 1, numeros[i]);
+        if (posSeq >= 0)
+            printf("Situacao: encontra-se no conjunto de dados\n");
         else
-        {
-            pausarTela();
-        }
+            printf("Situacao: nao encontra-se no conjunto de dados\n");
+        printf("Comparacoes - Busca Sequencial: %llu\n", compSeq);
+        printf("Comparacoes - Busca Binaria:    %llu\n", compBin);
 
-    } while (opcaoBusca != 0);
+        (void)posBin; // os dois algoritmos sempre concordam se o numero existe
+    }
+
+    free(vetorOriginal);
+    free(vetorOrdenado);
 }
 
 int main(void)
@@ -281,7 +277,6 @@ int main(void)
         printf("1 - Ordenacao de Dados (Teste interativo)\n");
         printf("2 - Busca de Dados\n");
         printf("3 - Gerar arquivo .txt de Ordenacao\n");
-        printf("4 - Gerar arquivo .txt de Busca\n");
         printf("0 - Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcaoPrincipal);
@@ -295,17 +290,12 @@ int main(void)
         case 2:
             limparTela();
             menuBusca();
+            pausarTela();
             break;
         case 3:
             printf("\nInforme o nome do arquivo de saida (ex: resultados.txt): ");
             scanf(" %249[^\n]", nomeArquivo);
             gerarRelatorioOrdenacao(nomeArquivo);
-            pausarTela();
-            break;
-        case 4:
-            printf("\nInforme o nome do arquivo de saida (ex: busca.txt): ");
-            scanf(" %249[^\n]", nomeArquivo);
-            gerarRelatorioBusca(nomeArquivo);
             pausarTela();
             break;
         case 0:
